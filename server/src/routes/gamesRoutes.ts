@@ -11,11 +11,15 @@ class GamesRoutes {
     }
 
     config(): void {
-        this.router.get('/', gamesController.games); // importo metodo de controllers
+        this.router.get('/', gamesController.list); // importo metodo de controllers
+        this.router.get('/:id', gamesController.getOne);
+        this.router.post('/', gamesController.create); // piden peticion post a api games via post, uso metodo create
+        this.router.put('/:id', gamesController.update);
+        this.router.delete('/:id', gamesController.delete);
     }
 
 }
 
 const gamesRoutes = new GamesRoutes();
 
-export default gamesRoutes.router;
+export default gamesRoutes.router; 
